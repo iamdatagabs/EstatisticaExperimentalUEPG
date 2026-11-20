@@ -26,3 +26,14 @@ jobs:
         with:
           packages: any::testthat
       - run: Rscript R/tests/testthat.R
+
+  pwa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --check docs/app/app.js
+      - run: node --check docs/app/sw.js
+      - run: python -c "import json; json.load(open('docs/app/manifest.webmanifest', encoding='utf-8'))"
