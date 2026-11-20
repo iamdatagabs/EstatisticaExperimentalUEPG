@@ -60,6 +60,10 @@ Shapiro-Wilk e testes de variância não provam pressupostos. Independência dep
 ## Materiais históricos
 Os scripts originais foram preservados em `legacy/`. Alguns materiais antigos referenciam arquivos locais que não estavam no repositório (como `DBC1.csv` e `dados_aula8.csv`). O novo pipeline usa dados autocontidos.
 
+## Aplicativo mobile (PWA)
+
+[Abra o aplicativo Estatística Experimental](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/app/). O aplicativo pode ser instalado na tela inicial de dispositivos compatíveis e oferece interface responsiva, importação de CSV, carregamento das bases do repositório, pré-visualização dos dados, estatística descritiva por grupo, ANOVA de um fator, gráficos e exportação de resultados. O processamento ocorre localmente no navegador; após o primeiro carregamento, a interface fica disponível offline. A análise inferencial é exploratória e deve ser validada conforme o delineamento experimental. Para DBC, modelos fatoriais, diagnósticos e análises especializadas, utilize os módulos R/Python.
+
 ## Dashboard
 [Abra o painel principal](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/) · [Abra o Laboratório de Dados](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/painel.html). O segundo painel oferece upload de CSV, filtros, indicadores, gráficos dinâmicos, estatísticas descritivas por grupo e exportação da seleção. Ambos são exploratórios; análises inferenciais completas devem ser executadas em R/Python.
 
