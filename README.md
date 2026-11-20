@@ -61,6 +61,6 @@ Shapiro-Wilk e testes de variância não provam pressupostos. Independência dep
 Os scripts originais foram preservados em `legacy/`. Alguns materiais antigos referenciam arquivos locais que não estavam no repositório (como `DBC1.csv` e `dados_aula8.csv`). O novo pipeline usa dados autocontidos.
 
 ## Dashboard
-[Abra o painel interativo](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/). O dashboard é exploratório; análises inferenciais completas devem ser executadas em R/Python.
+[Abra o painel principal](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/) · [Abra o Laboratório de Dados](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/painel.html). O segundo painel oferece upload de CSV, filtros, indicadores, gráficos dinâmicos, estatísticas descritivas por grupo e exportação da seleção. Ambos são exploratórios; análises inferenciais completas devem ser executadas em R/Python.
 
 Tecnologias: R, Python, pandas, NumPy, SciPy, statsmodels, pytest, testthat, HTML, CSS, JavaScript e GitHub Actions.
