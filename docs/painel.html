@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101a2b">
+  <meta name="description" content="Laboratório interativo de exploração de dados experimentais.">
+  <title>Laboratório de Dados | Estatística Experimental</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/painel.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/painel.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">E</span><span>ESTATÍSTICA<br><small>EXPERIMENTAL · UEPG</small></span></a>
+      <div class="side-label">AMBIENTE DE ANÁLISE</div>
+      <a class="nav-item active" href="painel.html"><span>◫</span> Laboratório de dados</a>
+      <a class="nav-item" href="index.html"><span>⌂</span> Visão geral do projeto</a>
+      <div class="side-bottom">
+        <div class="side-note"><span class="live-dot"></span> Ambiente local no navegador</div>
+        <a class="source-link" href="https://github.com/iamdatagabs/EstatisticaExperimentalUEPG" target="_blank" rel="noopener">Código-fonte ↗</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow">ESTATÍSTICA APLICADA · EXPLORAÇÃO</div><h1>Laboratório de dados</h1><p class="subtitle">Transforme observações em informação. Explore, compare e investigue seus dados experimentais.</p></div>
+        <div class="top-actions"><span class="status-pill"><i></i> Sessão ativa</span><button class="button button-ghost" id="resetData" type="button">Restaurar exemplo</button></div>
+      </header>
+
+      <section class="notice"><span class="notice-icon">i</span><div><strong>Painel exploratório</strong><p>As estatísticas e visualizações são calculadas no navegador. Não são executados testes de hipóteses, modelos inferenciais ou diagnósticos completos de delineamento. Para isso, utilize os módulos em R ou Python.</p></div></section>
+
+      <section class="workspace">
+        <div class="section-heading"><div><span class="eyebrow">01 / DADOS</span><h2>Fonte e configuração</h2></div><span class="micro-tag" id="dataLabel">BASE DEMONSTRATIVA</span></div>
+        <div class="data-controls panel">
+          <div class="upload-zone" id="dropZone">
+            <div class="upload-icon">↑</div><div><strong>Carregue seu conjunto de dados</strong><p>Arraste um arquivo CSV ou selecione no computador.</p><label class="button button-primary file-button" for="csvFile">Selecionar CSV</label><input id="csvFile" type="file" accept=".csv,text/csv"></div>
+          </div>
+          <div class="config-grid">
+            <label>Separador do CSV<select id="delimiter"><option value="auto">Detectar automaticamente</option><option value=",">Vírgula (,)</option><option value=";">Ponto e vírgula (;)</option><option value="\t">Tabulação</option></select></label>
+            <label>Variável resposta<select id="response"></select></label>
+            <label>Variável de agrupamento<select id="group"></select></label>
+            <label>Filtro de grupo<select id="filterGroup"><option value="__all">Todos os grupos</option></select></label>
+          </div>
+          <div class="data-meta"><span id="dataStatus">20 observações · 4 tratamentos · dados didáticos</span><button class="text-button" id="downloadCsv" type="button">↓ Exportar seleção CSV</button></div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="section-heading"><div><span class="eyebrow">02 / INDICADORES</span><h2>Resumo da amostra</h2></div><span class="muted-label">Atualização automática</span></div>
+        <div class="metric-grid">
+          <article class="metric-card"><span>Observações válidas</span><strong id="metricN">20</strong><small id="metricNSub">na seleção atual</small></article>
+          <article class="metric-card"><span>Média</span><strong id="metricMean">—</strong><small id="metricMeanSub">variável resposta</small></article>
+          <article class="metric-card"><span>Desvio-padrão</span><strong id="metricSd">—</strong><small>amostral</small></article>
+          <article class="metric-card"><span>Coeficiente de variação</span><strong id="metricCv">—</strong><small>em percentual</small></article>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="section-heading"><div><span class="eyebrow">03 / VISUALIZAÇÃO</span><h2>Comportamento dos dados</h2></div></div>
+        <div class="chart-grid">
+          <article class="panel chart-panel"><div class="panel-heading"><div><h3>Resposta por grupo</h3><p>Média aritmética de cada grupo</p></div><span class="chart-mark">01</span></div><div class="chart-wrap"><canvas id="groupChart" aria-label="Gráfico de médias por grupo"></canvas></div></article>
+          <article class="panel chart-panel"><div class="panel-heading"><div><h3>Distribuição</h3><p>Frequência das observações</p></div><span class="chart-mark">02</span></div><div class="chart-wrap"><canvas id="histChart" aria-label="Histograma da variável resposta"></canvas></div></article>
+          <article class="panel chart-panel chart-wide"><div class="panel-heading"><div><h3>Observações individuais</h3><p>Valores da resposta na ordem dos registros</p></div><span class="chart-mark">03</span></div><div class="chart-wrap chart-wrap-short"><canvas id="seriesChart" aria-label="Gráfico das observações individuais"></canvas></div></article>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="section-heading"><div><span class="eyebrow">04 / DESCRITIVAS</span><h2>Estatísticas por grupo</h2></div><span class="muted-label">Dados após filtros</span></div>
+        <div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>Grupo</th><th>n</th><th>Média</th><th>Mediana</th><th>DP</th><th>CV (%)</th><th>Mínimo</th><th>Máximo</th></tr></thead><tbody id="summaryBody"></tbody></table></div><div class="table-foot" id="tableFoot">Estatísticas calculadas sobre observações numéricas válidas.</div></div>
+      </section>
+
+      <footer><span>ESTATÍSTICA EXPERIMENTAL · UEPG</span><span>Feito para explorar. R e Python para inferir.</span></footer>
+    </main>
+  </div>
+</body>
+</html>
