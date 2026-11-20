@@ -41,6 +41,7 @@
             <div class="upload-icon">↑</div><div><strong>Carregue seu conjunto de dados</strong><p>Arraste um arquivo CSV ou selecione no computador.</p><label class="button button-primary file-button" for="csvFile">Selecionar CSV</label><input id="csvFile" type="file" accept=".csv,text/csv"></div>
           </div>
           <div class="config-grid">
+            <label>Base de exemplo<select id="sourceDataset"><option value="app/data/dic_milho.csv">DIC · milho</option><option value="app/data/dados.csv">Dados de aula</option></select></label>
             <label>Separador do CSV<select id="delimiter"><option value="auto">Detectar automaticamente</option><option value=",">Vírgula (,)</option><option value=";">Ponto e vírgula (;)</option><option value="\t">Tabulação</option></select></label>
             <label>Variável resposta<select id="response"></select></label>
             <label>Variável de agrupamento<select id="group"></select></label>
