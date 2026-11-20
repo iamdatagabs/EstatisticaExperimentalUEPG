@@ -1,0 +1,10 @@
+args <- commandArgs(trailingOnly=TRUE)
+if (length(args)<3) stop("Uso: Rscript R/scripts/run_analysis.R <csv> <resposta> <tratamento> [bloco]")
+source("R/R/experimental.R")
+d <- read_experiment(args[1])
+b <- if(length(args)>=4) args[4] else NULL
+fit <- fit_experiment(d,args[2],args[3],b)
+print(fit$anova)
+print(diagnose_experiment(fit))
+print(compare_treatments(fit))
+export_experiment(fit)
