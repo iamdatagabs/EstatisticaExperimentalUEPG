@@ -1,0 +1,20 @@
+{
+  "name": "Estatística Experimental",
+  "short_name": "Estatística",
+  "description": "Aplicativo de estatística experimental e análise de dados.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0c1422",
+  "theme_color": "#101827",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
