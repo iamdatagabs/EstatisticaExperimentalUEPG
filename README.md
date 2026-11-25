@@ -2,7 +2,7 @@
 
 Projeto didático e reprodutível de Estatística Experimental, análise de dados e engenharia científica em **R + Python**. Preserva os materiais históricos e acrescenta uma arquitetura modular, testes automatizados e dashboard público.
 
-## Funcionalidades
+**Aplicação:** [PWA](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/app/) · **Dashboard:** [GitHub Pages](https://iamdatagabs.github.io/EstatisticaExperimentalUEPG/) · **Portfolio:** [Gabriel Passos](https://iamdatagabs.github.io/iamdatagabs/portfolio/)\n\n## Funcionalidades
 - R: DIC, DBC, ANOVA, diagnóstico de resíduos, Tukey, testes não paramétricos e exportação.
 - Python: validação de dados, estatística descritiva, ANOVA, Shapiro-Wilk, Breusch-Pagan, Tukey e exportação CSV/JSON.
 - Dashboard web para exploração e upload de CSV.
